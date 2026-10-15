@@ -27,7 +27,7 @@ ReferenceString generateLocality(std::size_t length, int pages, unsigned seed,
     std::vector<int> hot;
 
     for (std::size_t i = 0; i < length; ++i) {
-        if (i % phaseLength == 0) {                       // new phase, new hot set
+        if (i % phaseLength == 0) {
             hot.clear();
             for (int k = 0; k < localitySize; ++k) hot.push_back(anyPage(rng));
         }

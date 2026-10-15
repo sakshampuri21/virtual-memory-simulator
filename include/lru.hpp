@@ -10,6 +10,6 @@ public:
     bool access(int page, std::size_t time) override;
 
 private:
-    std::list<int> order_;  // front = most recently used, back = least
+    std::list<int> order_;
     std::unordered_map<int, std::list<int>::iterator> where_;
 };

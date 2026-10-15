@@ -2,12 +2,12 @@
 
 bool LRUPolicy::access(int page, std::size_t) {
     auto it = where_.find(page);
-    if (it != where_.end()) {                        // hit: move to front
+    if (it != where_.end()) {
         order_.splice(order_.begin(), order_, it->second);
         return true;
     }
 
-    if (where_.size() == capacity_) {                // full: evict LRU
+    if (where_.size() == capacity_) {
         where_.erase(order_.back());
         order_.pop_back();
     }

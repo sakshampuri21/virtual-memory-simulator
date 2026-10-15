@@ -7,12 +7,12 @@ WorkingSetStats analyzeWorkingSet(const ReferenceString& refs, std::size_t windo
     s.window = window;
     s.sizes.reserve(refs.size());
 
-    std::unordered_map<int, std::size_t> count;  // page -> occurrences in window
+    std::unordered_map<int, std::size_t> count;
     double total = 0.0;
 
     for (std::size_t i = 0; i < refs.size(); ++i) {
-        ++count[refs[i]];                                     // slide in
-        if (i >= window) {                                    // slide out
+        ++count[refs[i]];
+        if (i >= window) {
             auto it = count.find(refs[i - window]);
             if (--(it->second) == 0) count.erase(it);
         }

@@ -1,9 +1,9 @@
 #include "fifo.hpp"
 
 bool FIFOPolicy::access(int page, std::size_t) {
-    if (resident_.count(page)) return true;  // hit: FIFO order unchanged
+    if (resident_.count(page)) return true;
 
-    if (resident_.size() == capacity_) {     // full: evict oldest
+    if (resident_.size() == capacity_) {
         resident_.erase(order_.front());
         order_.pop();
     }

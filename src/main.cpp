@@ -47,7 +47,7 @@ static void runCompare() {
 }
 
 static void runBelady() {
-    ReferenceString refs = {1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5};  // classic example
+    ReferenceString refs = {1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5};
     std::cout << "\n=== Belady's anomaly (FIFO) ===\nReference string: ";
     for (int p : refs) std::cout << p << ' ';
     std::cout << "\n\nFrames  Faults\n";
