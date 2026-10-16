@@ -1,5 +1,4 @@
 #pragma once
-#include <unordered_map>
 #include <vector>
 #include "replacement_policy.hpp"
 #include "types.hpp"
@@ -11,6 +10,7 @@ public:
     bool access(int page, std::size_t time) override;
 
 private:
-    std::vector<std::size_t> nextUse_;
-    std::unordered_map<int, std::size_t> resident_;
+    ReferenceString refs_;
+    std::vector<int> memory_;
+    std::size_t nextUse(int page, std::size_t time) const;
 };

@@ -3,7 +3,12 @@
 bool LRUPolicy::access(int page, std::size_t) {
     auto it = where_.find(page);
     if (it != where_.end()) {
-        order_.splice(order_.begin(), order_, it->second);
+        order_.splice(order_.begin(), order_, it->second); 
+        /*
+        order_.begin() is where to put it: the front (top).
+        order_ is the list it comes from.
+        it->second is the card to move. The map stores page → card position, and second is the position.
+        */
         return true;
     }
 
